@@ -9,7 +9,7 @@ LABEL "version"="1.0.1"
 LABEL "repository"="http://github.com/Douile/rust-release.action"
 LABEL "maintainer"="Douile <25043847+Douile@users.noreply.github.com>"
 
-RUN apk add --no-cache curl jq git build-base bash zip openssl-dev
+RUN apk add --no-cache curl jq git build-base bash zip openssl libressl-dev
 
 ADD entrypoint.sh ./entrypoint.sh
 ADD build.sh ./build.sh
