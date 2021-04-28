@@ -9,14 +9,7 @@ LABEL "version"="1.0.1"
 LABEL "repository"="http://github.com/Douile/rust-release.action"
 LABEL "maintainer"="Douile <25043847+Douile@users.noreply.github.com>"
 
-RUN apk add --no-cache curl jq git build-base bash zip
-RUN curl -O https://www.openssl.org/source/openssl-1.1.0g.tar.gz && \
-    tar xf openssl-1.1.0g.tar.gz && \
-    cd openssl-1.1.0g && \
-    export CC=... && \
-    ./Configure --prefix=... linux-x86_64 -fPIC && \
-    make -j$(nproc) && \
-    make install
+RUN apk add --no-cache curl jq git build-base bash zip openssl-dev
 
 ADD entrypoint.sh ./entrypoint.sh
 ADD build.sh ./build.sh
